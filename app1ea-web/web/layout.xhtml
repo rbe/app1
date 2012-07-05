@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>app1</title>
+</h:head>
+<h:body>
+    <h:panelGrid columns="2">
+        <h:panelGrid columns="1">
+            <h:outputLink value="#{request.contextPath}/registration.xhtml">Use Case 1: Registration</h:outputLink>
+            <h:outputLink value="#{request.contextPath}/user/dashboard.xhtml">Use Case 2: User Dashboard</h:outputLink>
+        </h:panelGrid>
+
+        <ui:insert name="content">
+        </ui:insert>
+    </h:panelGrid>
+</h:body>
+</html>

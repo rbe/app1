@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+<h:body>
+    <h:form id="loginForm">
+        <p:messages id="messages"/>
+        <p:panelGrid columns="2">
+
+            <f:facet name="header">
+                Welcome to app1
+            </f:facet>
+
+            <h:outputLabel for="username" value="Username: *"/>
+            <h:inputText id="username" value="#{myLoginBean.username}" required="true" label="Username">
+                <f:ajax event="keyup"/>
+            </h:inputText>
+
+            <h:outputLabel for="password" value="Password: *"/>
+            <h:inputText id="password" value="#{myLoginBean.password}" required="true" label="Password">
+                <f:ajax/>
+            </h:inputText>
+
+            <f:facet name="footer">
+                <p:commandButton actionListener="#{personBean.login1}" ajax="false" value="Login 1" icon="ui-icon-check" style="margin:0"/>
+                <p:commandButton actionListener="#{personBean.login2}" ajax="false" value="Login 2" icon="ui-icon-check" style="margin:0"/>
+            </f:facet>
+
+        </p:panelGrid>
+
+    </h:form>
+</h:body>
+</html>

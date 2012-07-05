@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="layout.xhtml">
+    <ui:define name="content">
+        <h:panelGrid columns="2">
+            <f:facet name="header">
+                app1 Java EE Application Template.
+            </f:facet>
+
+            <h:outputLabel>Browser</h:outputLabel>
+            <h:outputLabel>#{header['User-Agent']}</h:outputLabel>
+
+            <h:outputLabel>Das Cookie SESSIONID hat den Wert</h:outputLabel>
+            <h:outputLabel>#{cookie['SESSIONID'].value}</h:outputLabel>
+
+            <h:outputLabel>Deine Session-ID ist</h:outputLabel>
+            <h:outputLabel>#{session.id}</h:outputLabel>
+
+            <h:outputLabel>Der Username in der Session lautet</h:outputLabel>
+            <h:outputLabel>#{sessionScope['userName']}</h:outputLabel>
+
+            <f:facet name="footer">
+            </f:facet>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>
+</html>

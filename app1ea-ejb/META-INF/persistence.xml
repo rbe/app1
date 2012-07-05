@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="app1-PU">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <jta-data-source>java:jboss/datasources/app1Datasource</jta-data-source>
+        <mapping-file>META-INF/orm/CompanyEntity.xml</mapping-file>
+        <mapping-file>META-INF/orm/EmailEntity.xml</mapping-file>
+        <mapping-file>META-INF/orm/PersonEntity.xml</mapping-file>
+        <mapping-file>META-INF/orm/PersonRoleEntity.xml</mapping-file>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://127.0.0.1:3306/app1"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="app1"/>
+            <property name="hibernate.connection.password" value="app1"/>
+        </properties>
+    </persistence-unit>
+</persistence>

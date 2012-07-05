@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+    <entity class="eu.artofcoding.app1.entity.CompanyEntity">
+        <table name="company" schema="" catalog="app1"/>
+        <named-query name="findCompanyByCity">
+            <query>SELECT c FROM CompanyEntity c WHERE c.city = :city</query>
+        </named-query>
+        <attributes>
+            <id name="customerNumber">
+                <column name="customer_number" nullable="false" length="10"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="id">
+                <column name="id" length="10"/>
+            </basic>
+            <basic name="version">
+                <column name="version" length="10"/>
+            </basic>
+            <basic name="companyName">
+                <column name="company_name" length="200"/>
+            </basic>
+            <basic name="companyName2">
+                <column name="company_name2" length="200"/>
+            </basic>
+            <basic name="address">
+                <column name="address" length="100"/>
+            </basic>
+            <basic name="zipcode">
+                <column name="zipcode" length="20"/>
+            </basic>
+            <basic name="city">
+                <column name="city" length="100"/>
+            </basic>
+            <basic name="country">
+                <column name="country" length="100"/>
+            </basic>
+            <basic name="notes">
+                <column name="notes" length="2147483647"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

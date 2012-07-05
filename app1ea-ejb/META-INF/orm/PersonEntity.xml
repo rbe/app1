@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+    <entity class="eu.artofcoding.app1.entity.PersonEntity">
+        <table name="person" schema="" catalog="app1"/>
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" length="10"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+            <basic name="version">
+                <column name="version" length="10"/>
+            </basic>
+            <basic name="emailAddress">
+                <column name="email_address" length="100"/>
+            </basic>
+            <basic name="firstname">
+                <column name="firstname" length="20"/>
+            </basic>
+            <basic name="surname">
+                <column name="surname" length="50"/>
+            </basic>
+            <basic name="address">
+                <column name="address" length="100"/>
+            </basic>
+            <basic name="zipcode">
+                <column name="zipcode" length="20"/>
+            </basic>
+            <basic name="city">
+                <column name="city" length="100"/>
+            </basic>
+            <basic name="country">
+                <column name="country" length="100"/>
+            </basic>
+            <basic name="notes">
+                <column name="notes" length="2147483647"/>
+            </basic>
+            <basic name="password">
+                <column name="password" length="16"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

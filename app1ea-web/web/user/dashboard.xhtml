@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Simple JSF Facelets page</title>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+</h:head>
+<h:body>
+    <p:layout fullPage="true">
+        <!--
+            North
+        -->
+        <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+            app1
+        </p:layoutUnit>
+        <!--
+            South
+        -->
+        <p:layoutUnit position="south" size="350" header="Auswertung" resizable="true" closable="true" collapsible="true">
+            <p:lineChart id="linear"
+                         title="Linear Chart" legendPosition="e"
+                         style="height:300px"
+                         value="#{myChartBean.linearModel}"
+                         minY="0" maxY="10"/>
+        </p:layoutUnit>
+        <!--
+            West
+        -->
+        <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+            <h:form id="themeMenuForm">
+                <ui:include src="templates/themeMenu.xhtml"/>
+            </h:form>
+        </p:layoutUnit>
+        <!--
+            East
+        -->
+        <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+            <h:outputText value="Right unit content."/>
+        </p:layoutUnit>
+        <!--
+            Center
+        -->
+        <p:layoutUnit position="center">
+            <h:form id="centerForm">
+                <p:growl id="growl" />
+                <p:gmap id="googleMap"
+                        center="52.059158, 7.352737" zoom="16"
+                        type="ROADMAP" streetView="false"
+                        style="width:1024px;height:768px"
+                        model="#{myGoogleMapBean.simpleModel}">
+                    <p:ajax event="overlaySelect" listener="#{myGoogleMapBean.onPolylineSelect}" update="growl" />
+                </p:gmap>
+            </h:form>
+        </p:layoutUnit>
+    </p:layout>
+</h:body>
+</html>

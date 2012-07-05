@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+                 version="2.0">
+    <entity class="eu.artofcoding.app1.entity.PersonRoleEntity">
+        <table name="person_role" schema="" catalog="app1"/>
+        <id-class class="eu.artofcoding.app1.entity.PersonRoleEntityPK"/>
+        <attributes>
+            <id name="emailAddress">
+                <column name="email_address" nullable="false" length="100"/>
+            </id>
+            <id name="roleName">
+                <column name="role_name" nullable="false" length="20"/>
+            </id>
+            <basic name="id">
+                <column name="id" length="10"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

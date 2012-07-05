@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+<h:body>
+    Hello!
+    <h:form>
+        <!-- Notification -->
+        <p:notificationBar position="top" effect="slide" widgetVar="bar" styleClass="top">
+            <h:outputText value="What PrimeFaces has so far is just the beginning!" style="color:#FFCC00; font-size:36px;" />
+        </p:notificationBar>
+        <p:growl id="messages"/>
+        <!-- -->
+        <p:editor id="editor" value="#{myBean.editorValue}"/>
+        <h:panelGrid columns="2" style="margin-top:10px">
+            <p:commandButton id="submitButton" value="Submit" update="display" oncomplete="dlg.show()"
+                             icon="ui-icon-disk"/>
+            <p:commandButton id="clearButton" type="button" value="Clear" onclick="editor.clear()"
+                             icon="ui-icon-close"/>
+        </h:panelGrid>
+        <h:commandButton value="Say hello" action="#{myBean.sayHello}"/>
+        <p:splitButton value="Save" actionListener="#{myButtonBean.save}" update="messages" icon="ui-icon-disk">
+            <p:menuitem value="Update" actionListener="#{myButtonBean.update}" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Delete" actionListener="#{myButtonBean.delete}" ajax="false" icon="ui-icon-close"/>
+            <p:separator />
+            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+        </p:splitButton>
+        <p:commandButton value="Show notification bar" onclick="bar.show()" type="button" />
+        <p:commandButton value="Hide notification bar" onclick="bar.hide()" type="button" />
+        <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">
+            <h:outputText id="display" value="#{myBean.editorValue}" escape="false"/>
+        </p:dialog>
+        <!--
+        <p:panel id="panel" header="New User" style="margin-bottom:10px;">
+            <h:panelGrid columns="4">
+                <h:outputLabel for="firstname1" value="Firstname: *" />
+                <p:inputText id="firstname1" value="#{personBean.firstname}" required="true" label="Firstname">
+                    <f:validateLength minimum="2" />
+                </p:inputText>
+                <p:message for="firstname1" />
+                <h:outputText value="#{personBean.firstname}" />
+                <h:outputLabel for="surname1" value="Surname: *" />
+                <p:inputText id="surname1" value="#{personBean.surname}" required="true" label="Surname"/>
+                <p:message for="surname1" />
+                <h:outputText value="#{personBean.surname}" />
+                <h:outputLabel for="city" value="City: *" />
+                <h:selectOneMenu id="city" value="#{personBean.city}" required="true">
+                    <f:selectItem itemLabel="Select One" itemValue="" />
+                    <f:selectItems value="#{personBean.cities}" />
+                </h:selectOneMenu>
+                <p:message for="city" />
+                <h:outputText value="#{personBean.city}" />
+            </h:panelGrid>
+        </p:panel>
+        -->
+        <!-- -->
+        <p:panel header="Ajaxify">
+            <h:panelGrid columns="3" cellpadding="5">
+                <h:outputText value="KeyUp: " />
+                <p:inputText id="firstname" value="#{personBean.firstname}">
+                    <p:ajax event="keyup" update="out1" />
+                </p:inputText>
+                <h:outputText id="out1" value="#{personBean.firstname}" />
+                <h:outputText value="Blur: " />
+                <p:inputText id="surname" value="#{personBean.surname}">
+                    <p:ajax event="blur" update="out2" />
+                </p:inputText>
+                <h:outputText id="out2" value="#{personBean.surname}" />
+            </h:panelGrid>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="layout.xhtml">
+    <ui:define name="content">
+        <h:form id="registrationForm">
+            <h:panelGrid columns="3">
+                <f:facet name="header">
+                    Please provide some details.
+                </f:facet>
+
+                <h:outputLabel for="firstname" value="Firstname"/>
+                <h:inputText id="firstname" size="45" value="#{personBean.person.firstname}">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="2"/>
+                </h:inputText>
+                <h:message for="firstname"/>
+
+                <h:outputLabel for="surname" value="Surname"/>
+                <h:inputText id="surname" size="45" value="#{personBean.person.surname}">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="2"/>
+                </h:inputText>
+                <h:message for="surname"/>
+
+                <h:outputLabel for="address" value="Address"/>
+                <h:inputText id="address" size="45" value="#{personBean.person.address}">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="2"/>
+                </h:inputText>
+                <h:message for="address"/>
+
+                <h:outputLabel value="ZIP City"/>
+                <h:panelGroup id="zipcodeCity">
+                    <h:inputText size="10" value="#{personBean.person.zipcode}"/>
+                    <h:inputText size="30" value="#{personBean.person.city}"/>
+                </h:panelGroup>
+                <h:message for="zipcodeCity"/>
+
+                <h:outputLabel value="Email"/>
+                <h:inputText id="email1" size="45" value="#{personBean.person.emailAddress}">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="8"/>
+                </h:inputText>
+                <h:message for="email1"/>
+
+                <h:outputLabel value="Email validation"/>
+                <h:inputText id="email2" size="45">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="8"/>
+                </h:inputText>
+                <h:message for="email2"/>
+
+                <h:outputLabel value="Password"/>
+                <h:inputSecret id="password1" size="45" value="#{personBean.person.password}">
+                    <f:validateRequired/>
+                    <f:validateLength minimum="8"/>
+                </h:inputSecret>
+                <h:message for="password1"/>
+
+                <h:outputLabel value=""/>
+                <h:commandButton value="Create account" action="#{personBean.createAccount}"/>
+                <h:outputLabel value=""/>
+
+                <f:facet name="footer">
+                </f:facet>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
